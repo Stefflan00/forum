@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
-sset :application, 'forum'
+set :application, 'forum'
 set :repo_url, 'git@github.com:stefflan00/forum.git'
 set :deploy_to, '/opt/www/forum'
 set :user, 'deploy'
