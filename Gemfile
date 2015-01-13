@@ -53,3 +53,10 @@ end
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'sucker_punch'
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
+gem 'local_time', '~> 1.0.0'
+
+gem 'html-pipeline', '~> 1.11.0'
+gem 'github-markdown', '~> 0.6.8'
+gem 'gemoji', '~> 2.1.0'
+gem 'sanitize', '~> 3.1.0'
