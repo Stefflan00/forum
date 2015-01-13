@@ -15,6 +15,8 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime
 #  updated_at             :datetime
+#  first_name             :string
+#  last_name              :string
 #
 # Indexes
 #
@@ -29,5 +31,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :forum_posts
   has_many :forum_threads
+
+  def name
+  "#{first_name} #{last_name}"
+  end
 
 end
