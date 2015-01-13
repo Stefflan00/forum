@@ -1,19 +1,18 @@
 class ForumThreadsController < ApplicationController
-
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_forum_thread, except: [:index, :new, :create]
 
   def index
-    @forum_threads = ForumThreads.all
+    @forum_threads = ForumThread.all
   end
 
   def show
+    @forum_post = ForumPost.new
   end
 
   def new
     @forum_thread = ForumThread.new
     @forum_thread.forum_posts.new
-
   end
 
   def create
@@ -26,12 +25,14 @@ class ForumThreadsController < ApplicationController
       render action: :new
     end
   end
-  private
-    def forum_thread_params
-      params.require(:forum_thread).permit(:subject, forum_post_attributes: [:body])
-    end
 
-    def set_forum_thread
-      @forum_thread = ForumThread.find(params[:id])
-    end
+  private
+
+  def set_forum_thread
+    @forum_thread = ForumThread.find(params[:id])
+  end
+
+  def forum_thread_params
+    params.require(:forum_thread).permit(:subject, forum_posts_attributes: [:body])
+  end
 end
